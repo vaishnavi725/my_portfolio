@@ -1,0 +1,1306 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Premium Blue Palette */
+  --color-deep-navy: #061525;
+  --color-dark-blue: #0B2340;
+  --color-royal-blue: #1769AA;
+  --color-bright-blue: #2F9FEF;
+  --color-sky-blue: #78C8F5;
+  --color-soft-cyan: #A9E7FF;
+  --color-pearl-white: #F8FCFF;
+  --color-silver: #D8E7F2;
+
+  /* Legacy & Accent References */
+  --color-primary-bg: #061525;
+  --color-deep-plum: #0B2340;
+  --color-royal-plum: #1769AA;
+  --color-purple: #1769AA;
+  --color-lavender: #78C8F5;
+  --color-soft-lavender: #A9E7FF;
+  --color-dusty-mauve: #1769AA;
+  --color-soft-blue: #2F9FEF;
+  --color-accent-cyan: #A9E7FF;
+  --color-warm-cream: #F8FCFF;
+  --color-soft-pink: #78C8F5;
+  --color-gold-accent: #2F9FEF;
+  --color-silver-accent: #D8E7F2;
+  
+  --color-brand-card: rgba(11, 35, 64, 0.7);
+  --color-brand-border: rgba(47, 159, 239, 0.25);
+  --color-brand-border-glow: rgba(120, 200, 245, 0.5);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #061525;
+  color: #F8FCFF;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-display);
+}
+
+.font-code {
+  font-family: var(--font-mono);
+}
+
+/* 3D Perspective & Layering */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Premium Blue Glassmorphism */
+.glass-panel {
+  background: rgba(11, 35, 64, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(47, 159, 239, 0.22);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(16, 48, 88, 0.85);
+  border-color: rgba(120, 200, 245, 0.55);
+  box-shadow: 0 0 30px rgba(47, 159, 239, 0.3), 0 12px 40px rgba(6, 21, 37, 0.7);
+}
+
+.glass-pill {
+  background: rgba(11, 35, 64, 0.8);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(120, 200, 245, 0.3);
+}
+
+.glass-modal {
+  background: rgba(6, 21, 37, 0.95);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(47, 159, 239, 0.35);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 50px rgba(47, 159, 239, 0.25);
+}
+
+/* Blue Gradients */
+.gradient-blue-primary {
+  background: linear-gradient(135deg, #0B2340 0%, #1769AA 50%, #2F9FEF 100%);
+}
+
+.gradient-blue-glow {
+  background: linear-gradient(135deg, #2F9FEF 0%, #78C8F5 50%, #A9E7FF 100%);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(47, 159, 239, 0.4);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(to right, #F8FCFF, #78C8F5, #2F9FEF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Futuristic background grid */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(47, 159, 239, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 159, 239, 0.07) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(120, 200, 245, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #061525;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1769AA;
+  border-radius: 9999px;
+  border: 1px solid rgba(47, 159, 239, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2F9FEF;
+}
+
+/* Text glow utilities */
+.drop-shadow-glow-blue {
+  filter: drop-shadow(0 0 12px rgba(47, 159, 239, 0.6));
+}
+
+.drop-shadow-glow-cyan {
+  filter: drop-shadow(0 0 14px rgba(169, 231, 255, 0.7));
+}
+
+/* Smooth Rotation animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 30s linear infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-gentle 6s ease-in-out infinite;
+}
+
+/* Light & Premium Landing Keyframes */
+@keyframes lightProfileReveal {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.88) rotate(-4deg);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes lightSlideUp {
+  0% {
+    opacity: 0.7;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lightScaleReveal {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes lightSlideLeft {
+  0% {
+    opacity: 0.7;
+    transform: translateX(-18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lightFadeIn {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-light-profile {
+  animation: lightProfileReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-light-up {
+  animation: lightSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-light-scale {
+  animation: lightScaleReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-light-left {
+  animation: lightSlideLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-light-fade {
+  animation: lightFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Digital Identity System Keyframes: Expanding Rings & Light Sweep */
+@keyframes expandingRingPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSweepSheen {
+  0% {
+    transform: translate(-140%, -140%) rotate(45deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  35% {
+    transform: translate(140%, 140%) rotate(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(140%, 140%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes profileFloatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.2deg);
+  }
+}
+
+@keyframes ringExpandBuild {
+  0% {
+    transform: scale(0.3) rotate(-90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.06) rotate(10deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes clickRippleEffect {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+/* 3D Laptop Opening & Screen Glow Keyframes */
+@keyframes laptopLidOpen {
+  0% {
+    transform: rotateX(-75deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes laptopScreenLightUp {
+  0% {
+    filter: brightness(0.25);
+    box-shadow: 0 0 0px transparent;
+  }
+  100% {
+    filter: brightness(1);
+    box-shadow: 0 0 45px rgba(47, 159, 239, 0.35);
+  }
+}
+
+@keyframes lineNodePulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(47, 159, 239, 0.4));
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 10px rgba(47, 159, 239, 0.85));
+  }
+}
+
+@keyframes centerNodeBirth {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    box-shadow: 0 0 0px transparent;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(47, 159, 239, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(25, 118, 210, 0.45);
+  }
+}
+
+@keyframes nodePopIn {
+  0% {
+    transform: scale(0) rotate(-30deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) rotate(4deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes orbitClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitCounter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes screenZoomEnter {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+.animate-laptop-open {
+  animation: laptopLidOpen 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-screen-on {
+  animation: laptopScreenLightUp 1.2s ease-out forwards;
+}
+
+.animate-node-pulse {
+  animation: lineNodePulse 2.8s ease-in-out infinite;
+}
+
+.animate-center-birth {
+  animation: centerNodeBirth 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-orbit-cw {
+  animation: orbitClockwise 28s linear infinite;
+}
+
+.animate-orbit-ccw {
+  animation: orbitCounter 36s linear infinite;
+}
+
+/* Word-by-Word Cinematic Entrance */
+@keyframes wordEntranceWelcome {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.6) rotateX(45deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes wordEntranceTo {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.6) rotateY(-25deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes wordEntranceMy {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.6) rotateX(-25deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes wordEntranceProfile {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.6) rotateY(25deg);
+    filter: blur(10px);
+    text-shadow: 0 0 0px transparent;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+    text-shadow: 0 0 25px rgba(47, 159, 239, 0.6);
+  }
+}
+
+@keyframes phraseGlowPulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 20px rgba(47, 159, 239, 0.45));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(47, 159, 239, 0.2));
+  }
+}
+
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.8);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes titleFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes badgePopIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes profileImageReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+.word-anim-welcome {
+  display: inline-block;
+  animation: wordEntranceWelcome 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+  transform-origin: center bottom;
+}
+
+.word-anim-to {
+  display: inline-block;
+  animation: wordEntranceTo 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  transform-origin: center bottom;
+}
+
+.word-anim-my {
+  display: inline-block;
+  animation: wordEntranceMy 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
+  transform-origin: center bottom;
+}
+
+.word-anim-profile {
+  display: inline-block;
+  animation: wordEntranceProfile 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+  transform-origin: center bottom;
+}
+
+.phrase-anim-pulse {
+  display: inline-block;
+  animation: phraseGlowPulse 0.8s ease-in-out 2.6s both;
+}
+
+.title-anim-slide {
+  animation: titleFadeSlide 0.7s cubic-bezier(0.16, 1, 0.3, 1) 4.6s both;
+}
+
+/* ========================================================================= */
+/* REALISTIC BOOK-OPENING PROFILE PHOTO ENTRANCE ANIMATION                   */
+/* ========================================================================= */
+
+@keyframes bookPageOpen {
+  0% {
+    transform: rotateY(-90deg) scaleX(0.15);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  22% {
+    transform: rotateY(-70deg) scaleX(0.5);
+    opacity: 0.55;
+    filter: blur(6px);
+  }
+  46% {
+    transform: rotateY(-45deg) scaleX(0.72);
+    opacity: 0.82;
+    filter: blur(3.5px);
+  }
+  72% {
+    transform: rotateY(-20deg) scaleX(0.88);
+    opacity: 0.96;
+    filter: blur(1px);
+  }
+  92% {
+    transform: rotateY(-4deg) scaleX(0.98);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: rotateY(0deg) scaleX(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes bookPageSpineShadow {
+  0% {
+    opacity: 0.95;
+    width: 14%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.8) 0%, rgba(18, 59, 93, 0.3) 60%, transparent 100%);
+  }
+  25% {
+    opacity: 0.75;
+    width: 25%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.6) 0%, rgba(18, 59, 93, 0.22) 65%, transparent 100%);
+  }
+  50% {
+    opacity: 0.5;
+    width: 38%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.4) 0%, rgba(18, 59, 93, 0.15) 75%, transparent 100%);
+  }
+  75% {
+    opacity: 0.22;
+    width: 48%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.2) 0%, rgba(18, 59, 93, 0.06) 85%, transparent 100%);
+  }
+  95% {
+    opacity: 0.05;
+    width: 50%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.08) 0%, transparent 100%);
+  }
+  100% {
+    opacity: 0;
+    width: 50%;
+    background: linear-gradient(90deg, transparent 0%, transparent 100%);
+  }
+}
+
+@keyframes bookOpeningLightSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(180%);
+    opacity: 0;
+  }
+}
+
+@keyframes circularFrameAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+    box-shadow: 0 0 0 transparent;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 18px 50px rgba(25, 118, 210, 0.18), 0 0 28px rgba(102, 199, 234, 0.22);
+  }
+}
+
+@keyframes beaconTravelOrbit {
+  0% {
+    transform: rotate(0deg) translate(calc(clamp(140px, 16vw, 170px) + 28px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(calc(clamp(140px, 16vw, 170px) + 28px)) rotate(-360deg);
+  }
+}
+
+.perspective-book-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.profile-floating-assembly {
+  animation: profileFloatUpDown 5.5s ease-in-out infinite 3.4s;
+}
+
+.book-opening-photo {
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  animation: bookPageOpen 1.9s cubic-bezier(0.25, 0.9, 0.3, 1) 0.05s both;
+}
+
+.book-spine-shadow {
+  animation: bookPageSpineShadow 1.9s cubic-bezier(0.25, 0.9, 0.3, 1) 0.05s both;
+}
+
+.book-light-sweep {
+  animation: bookOpeningLightSweep 1.9s cubic-bezier(0.25, 0.9, 0.3, 1) 0.1s both;
+}
+
+.circular-frame-entrance {
+  animation: circularFrameAppear 0.65s cubic-bezier(0.16, 1, 0.3, 1) 2.0s both;
+}
+
+.ring-book-1 {
+  animation: ringAppearSlow1 0.75s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both, orbitClockwise 60s linear infinite 3.4s;
+}
+
+.ring-book-2 {
+  animation: ringAppearSlow2 0.75s cubic-bezier(0.16, 1, 0.3, 1) 2.8s both, orbitCounter 75s linear infinite 3.7s;
+}
+
+.ring-book-3 {
+  animation: ringAppearSlow3 0.75s cubic-bezier(0.16, 1, 0.3, 1) 3.1s both, orbitClockwise 95s linear infinite 4.0s;
+}
+
+.particles-book-appear {
+  animation: badgePopIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.8s both;
+}
+
+.beacon-light-travel {
+  animation: badgePopIn 0.5s ease-out 2.8s both;
+}
+
+.beacon-orbit-node {
+  animation: beaconTravelOrbit 8s linear infinite 2.9s;
+}
+
+.profile-post-float {
+  animation: profileFloatUpDown 5.5s ease-in-out infinite 3.4s;
+}
+
+/* Base Profile & Ring Helpers */
+@keyframes profileFloatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ringAppearSlow1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ringAppearSlow2 {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ringAppearSlow3 {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.profile-reveal-img {
+  animation: bookPageOpen 1.9s cubic-bezier(0.25, 0.9, 0.3, 1) 0.1s both;
+}
+
+.profile-frame-float {
+  animation: profileFloatUpDown 5.5s ease-in-out infinite 3.4s;
+}
+
+.ring-anim-1 {
+  animation: ringAppearSlow1 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.6s both, orbitClockwise 60s linear infinite 3.4s;
+}
+
+.ring-anim-2 {
+  animation: ringAppearSlow2 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.9s both, orbitCounter 75s linear infinite 3.7s;
+}
+
+.ring-anim-3 {
+  animation: ringAppearSlow3 0.8s cubic-bezier(0.16, 1, 0.3, 1) 3.2s both, orbitClockwise 95s linear infinite 4.0s;
+}
+
+/* ========================================================================= */
+/* INSIDE LAPTOP SCREEN CHOREOGRAPHY                                         */
+/* ========================================================================= */
+
+@keyframes laptopGlowingDotBirth {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    box-shadow: 0 0 0px transparent;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+    box-shadow: 0 0 25px #2F9FEF, 0 0 45px #66C7EA;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 14px #2F9FEF;
+  }
+}
+
+@keyframes laptopGlowingDotExpand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(4.5);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(8.5);
+    opacity: 0;
+  }
+}
+
+@keyframes laptopWordWelcome {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.7) rotateX(35deg);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes laptopWordTo {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.7) rotateY(-25deg);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes laptopWordMy {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.7) rotateX(-25deg);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes laptopWordProfile {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.7) rotateY(25deg);
+    filter: blur(8px);
+    text-shadow: 0 0 0px transparent;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateY(0deg);
+    filter: blur(0px);
+    text-shadow: 0 0 20px rgba(47, 159, 239, 0.6);
+  }
+}
+
+@keyframes laptopBookPageOpen {
+  0% {
+    transform: rotateY(-90deg) scaleX(0.15);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  25% {
+    transform: rotateY(-60deg) scaleX(0.5);
+    opacity: 0.65;
+    filter: blur(5px);
+  }
+  55% {
+    transform: rotateY(-30deg) scaleX(0.8);
+    opacity: 0.88;
+    filter: blur(2.5px);
+  }
+  80% {
+    transform: rotateY(-10deg) scaleX(0.95);
+    opacity: 0.98;
+    filter: blur(0.5px);
+  }
+  100% {
+    transform: rotateY(0deg) scaleX(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes laptopBookSpineShadow {
+  0% {
+    opacity: 0.95;
+    width: 14%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.8) 0%, rgba(18, 59, 93, 0.3) 60%, transparent 100%);
+  }
+  30% {
+    opacity: 0.7;
+    width: 28%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.55) 0%, rgba(18, 59, 93, 0.2) 70%, transparent 100%);
+  }
+  65% {
+    opacity: 0.35;
+    width: 42%;
+    background: linear-gradient(90deg, rgba(18, 59, 93, 0.3) 0%, rgba(18, 59, 93, 0.08) 80%, transparent 100%);
+  }
+  100% {
+    opacity: 0;
+    width: 50%;
+    background: linear-gradient(90deg, transparent 0%, transparent 100%);
+  }
+}
+
+@keyframes laptopBookLightSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(180%);
+    opacity: 0;
+  }
+}
+
+@keyframes laptopCircularFrameAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes laptopRingAppear1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes laptopRingAppear2 {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes laptopRingAppear3 {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes laptopBeaconOrbit {
+  0% {
+    transform: rotate(0deg) translate(calc(clamp(42px, 7vw, 54px) + 14px)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(calc(clamp(42px, 7vw, 54px) + 14px)) rotate(-360deg);
+  }
+}
+
+.laptop-dot-pulse {
+  animation: laptopGlowingDotBirth 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both, laptopGlowingDotExpand 0.7s ease-out 0.8s forwards;
+}
+
+.laptop-word-welcome {
+  display: inline-block;
+  animation: laptopWordWelcome 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+  transform-origin: center bottom;
+}
+
+.laptop-word-to {
+  display: inline-block;
+  animation: laptopWordTo 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.3s both;
+  transform-origin: center bottom;
+}
+
+.laptop-word-my {
+  display: inline-block;
+  animation: laptopWordMy 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+  transform-origin: center bottom;
+}
+
+.laptop-word-profile {
+  display: inline-block;
+  animation: laptopWordProfile 0.65s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both;
+  transform-origin: center bottom;
+}
+
+.laptop-photo-stage {
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.laptop-floating-assembly {
+  animation: profileFloatUpDown 5.5s ease-in-out infinite 5.8s;
+}
+
+.laptop-book-photo {
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  animation: laptopBookPageOpen 1.8s cubic-bezier(0.25, 0.9, 0.3, 1) 2.8s both;
+}
+
+.laptop-spine-shadow {
+  animation: laptopBookSpineShadow 1.8s cubic-bezier(0.25, 0.9, 0.3, 1) 0.1s both;
+}
+
+.laptop-light-sweep {
+  animation: laptopBookLightSweep 1.8s cubic-bezier(0.25, 0.9, 0.3, 1) 0.15s both;
+}
+
+.laptop-circular-frame {
+  animation: laptopCircularFrameAppear 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
+}
+
+.laptop-ring-1 {
+  animation: laptopRingAppear1 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.7s both, orbitClockwise 60s linear infinite 2.4s;
+}
+
+.laptop-ring-2 {
+  animation: laptopRingAppear2 0.7s cubic-bezier(0.16, 1, 0.3, 1) 2.0s both, orbitCounter 75s linear infinite 2.7s;
+}
+
+.laptop-ring-3 {
+  animation: laptopRingAppear3 0.7s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both, orbitClockwise 95s linear infinite 3.0s;
+}
+
+.laptop-beacon-travel {
+  animation: badgePopIn 0.5s ease-out 1.9s both;
+}
+
+.laptop-beacon-node {
+  animation: laptopBeaconOrbit 7s linear infinite 2.0s;
+}
+
+.laptop-particles {
+  animation: badgePopIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.9s both;
+}
+
+.laptop-name-reveal {
+  animation: badgePopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.2s both;
+}
+
+.laptop-subtitle-reveal {
+  animation: badgePopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both;
+}
+
+.laptop-pills-reveal {
+  animation: badgePopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.8s both;
+}
+
+.laptop-btn-reveal {
+  animation: badgePopIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 3.1s both;
+}
+
+/* ========================================================================= */
+/* DIGITAL BRAIN & NEURAL SKILLS NETWORK ANIMATIONS                          */
+/* ========================================================================= */
+
+@keyframes neuralPulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(47, 159, 239, 0.6)) drop-shadow(0 0 16px rgba(102, 199, 234, 0.35));
+    opacity: 0.95;
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(47, 159, 239, 0.9)) drop-shadow(0 0 28px rgba(102, 199, 234, 0.6));
+    opacity: 1;
+  }
+}
+
+@keyframes brainHemisphereSeparateLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-14px);
+  }
+}
+
+@keyframes brainHemisphereSeparateRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes synapticBridgePulse {
+  0%, 100% {
+    stroke-opacity: 0.4;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-opacity: 1;
+    stroke-dashoffset: -12;
+  }
+}
+
+@keyframes photonTravelPulse {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+}
+
+@keyframes skillBadgeElasticPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes skillGentleHoverRest {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes brainConvergeCenter {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  60% {
+    transform: scale(0.5);
+    opacity: 0.9;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+@keyframes glowingNexusExpand {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+    box-shadow: 0 0 10px #2F9FEF;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 35px #2F9FEF, 0 0 60px #66C7EA;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 20px #2F9FEF, 0 0 40px #66C7EA;
+  }
+}
+
+.animate-neural-pulse {
+  animation: neuralPulseGlow 3.5s ease-in-out infinite;
+}
+
+.animate-synaptic-pulse {
+  animation: synapticBridgePulse 1.8s ease-in-out infinite;
+}
+
+.animate-skill-float {
+  animation: skillGentleHoverRest 4s ease-in-out infinite;
+}
